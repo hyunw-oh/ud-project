@@ -56,11 +56,15 @@ def hough_lines(img, rho, theta, threshold, min_line_len, max_line_gap):
 def weighted_img(img, initial_img, α=0.8, β=1., γ=0.):
     #img=initial_img * α + img * β + γ
     return cv2.addWeighted(initial_img, α, img, β, γ)
-
-
+old_line = []
 def cv2_fitline(img, f_lines):
     width,height=img.shape[0],img.shape[1]
     lines = f_lines.reshape(f_lines.shape[0] * 2, 2)
+    global old_line
+    if len(lines) == 0:
+        lines = old_line
+    else:
+        old_line = lines
     output = cv2.fitLine(lines, cv2.DIST_L2, 0, 0.01, 0.01)
     vx, vy, x, y = output[0], output[1], output[2], output[3]
     x1, y1 = int(((width - 1) - y) / vy * vx + x), width - 1
@@ -74,16 +78,16 @@ def process_image(image):
 
     gray_image = grayscale(image)
 
-    blur_image = gaussian_blur(gray_image ,5)
+    blur_image = gaussian_blur(gray_image ,3)
 
-    canny_image = canny(blur_image ,100,230)
+    canny_image = canny(blur_image ,70,230)
 
-    vertices = np.array([[(imshape[0]*0.05,imshape[0]),(imshape[1]/2, imshape[0]/2), (imshape[1]/2, imshape[0]/2), (imshape[1]*0.95,imshape[0])]], dtype=np.int32)
+    vertices = np.array([[(imshape[1]*0.1,imshape[0]),(imshape[1]*0.45, imshape[0]*0.6), (imshape[1]*0.55, imshape[0]*0.6), (imshape[1]*0.9,imshape[0])]], dtype=np.int32)
     roi_image = region_of_interest(canny_image ,vertices)
 
-    rho = 1 # distance resolution in pixels of the Hough grid
+    rho = 1# distance resolution in pixels of the Hough grid
     theta = np.pi/180 # angular resolution in radians of the Hough grid
-    threshold = 50     # minimum number of votes (intersections in Hough grid cell)
+    threshold = 30     # minimum number of votes (intersections in Hough grid cell)
     min_line_length = 10 #minimum number of pixels making up a line
     max_line_gap = 20    # maximum gap in pixels between connectable line segments
 
@@ -95,12 +99,12 @@ def process_image(image):
     line_degree = np.squeeze(line_degree)
 
     # limit vertical degree
-    lines = lines[np.abs(line_degree)>90]
-    line_degree = line_degree[np.abs(line_degree)>90]
+    lines = lines[np.abs(line_degree)>100]
+    line_degree = line_degree[np.abs(line_degree)>100]
 
     # limit horizontal degree
-    lines = lines[np.abs(line_degree) < 170]
-    line_degree = line_degree[np.abs(line_degree) < 170]
+    lines = lines[np.abs(line_degree) < 160]
+    line_degree = line_degree[np.abs(line_degree) < 160]
 
     # Devide the line into the two types
     left_lines = lines[(line_degree>0),:]
@@ -108,8 +112,8 @@ def process_image(image):
     line_img = np.zeros((imshape[0], imshape[1], 3), dtype=np.uint8)
 
     # find the fitline
-    left_fit_line = cv2_fitline(image,left_lines)
-    right_fit_line = cv2_fitline(image,right_lines)
+    left_fit_line = cv2_fitline(roi_image,left_lines)
+    right_fit_line = cv2_fitline(roi_image,right_lines)
 
     # draw lines
     draw_lines(line_img, left_fit_line,[255,0,0],12)
@@ -119,27 +123,30 @@ def process_image(image):
     return result
 
 import os
-test=os.listdir("test_images/")
-for file_name in test:
+files=os.listdir("test_images/")
+for file_name in files:
     image = mpimg.imread("test_images/"+file_name)
     result=process_image(image)
     fig = plt.gcf()
     plt.imshow(result)
     plt.show()
-# then save them to the test_images_output directory.
     fig.savefig("test_images_output/"+file_name)
 
-test=os.listdir("test_videos/")
-for file_name in test:
+files=os.listdir("test_videos/")
+for file_name in files:
     cap = cv2.VideoCapture("test_videos/"+file_name)
+    ret, frame = cap.read()
+
+    fcc = cv2.VideoWriter_fourcc(*'X264')
+    out = cv2.VideoWriter("test_videos_output/"+file_name, fcc, 20.0, (int(cap.get(3)), int(cap.get(4))))
     while (cap.isOpened()):
-        if (cap.get(cv2.CAP_PROP_POS_FRAMES) == cap.get(cv2.CAP_PROP_FRAME_COUNT)):
-            cap.open(file_name)
         ret, frame = cap.read()
-        result = process_image(frame)
-        cv2.imshow("Video",result)
+        if ret:
+            result = process_image(frame)
+            out.write(result)
+            cv2.imshow(file_name,result)
         if cv2.waitKey(33) > 0: break
 
-#white_output = 'test_videos_output/solidWhiteRight.mp4'
-#yellow_output = 'test_videos_output/solidYellowLeft.mp4'
-#challenge_output = 'test_videos_output/challenge.mp4'
+    out.release()
+    cap.release()
+    cv2.destroyAllWindows()
