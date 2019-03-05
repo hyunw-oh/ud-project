@@ -44,7 +44,7 @@ for fname in files:
         nx=9
 
         ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img.shape[1:], None, None)
-        undist = cv2.undistort(img, mtx, dist, None, mtx)
+#        undist = cv2.undistort(img, mtx, dist, None, mtx)
 
         src = np.float32([corners[0], corners[nx-1], corners[-1], corners[-nx]])
         dst = np.float32([[offset_x, offset_y], [img.shape[1]-offset_x, offset_y],
@@ -52,7 +52,7 @@ for fname in files:
                                      [offset_x, img.shape[0]-offset_y]])
         img=warper(img,src,dst)
         print(fname)
-        cv2.imwrite('../camera_cal_output/'+fname,undist)
+        cv2.imwrite('../camera_cal_output/'+fname,img)
         cv2.imshow('img',img)
         cv2.waitKey(500)
 
