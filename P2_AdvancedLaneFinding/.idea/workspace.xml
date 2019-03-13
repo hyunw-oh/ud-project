@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ca95c53a-4556-4552-9aa2-8b1d06eb129d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/P2_py_files/correct_distortion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/finding_lines.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/tools/binary_combo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/tools/find_lr_line.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/tools/region_of_interest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/tools/undistort.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P2_py_files/warp_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_video/project_video.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project_video_output/challenge_video.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../P1_LaneDetect/test_videos_output/challenge.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/../P1_LaneDetect/test_videos_output/challenge.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration10.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration11.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration12.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration13.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration13.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration14.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration14.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration15.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration15.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration17.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration17.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration18.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration18.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration19.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration19.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration20.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration20.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration6.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration7.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration8.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera_cal_output/calibration9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/camera_cal_output/calibration9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/challenge_video.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/project_video/challenge_video.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/example.py" beforeDir="false" afterPath="$PROJECT_DIR$/P2_py_files/tools/warper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/undistort.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_video/harder_challenge_video.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/writeup_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/writeup_template.md" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.30638853">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/writeup_template.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="403">
+                    <caret line="136" selection-start-line="136" selection-end-line="136" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/finding_lines.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="247">
+                  <caret line="34" column="57" lean-forward="true" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/tools/undistort.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="114">
+                  <caret line="6" selection-start-line="6" selection-end-line="6" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/tools/binary_combo.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="784">
+                  <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/tools/region_of_interest.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="209">
+                  <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/tools/find_lr_line.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-418">
+                  <caret line="111" column="51" lean-forward="true" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
+                  <folding>
+                    <element signature="e#0#10#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_images_output/straight_lines1.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_images_output/test2.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/LICENSE">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/test_images_output/test6.jpg">
+              <provider selected="true" editor-type-id="images" />
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/writeup_template.md">
+              <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+                <state split_layout="SPLIT">
+                  <first_editor relative-caret-position="196">
+                    <caret line="111" column="19" lean-forward="true" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="19" />
+                  </first_editor>
+                  <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/correct_distortion.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="266">
+                  <caret line="14" column="43" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/P2_py_files/warp_image.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="494">
+                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                  <folding>
+                    <element signature="e#0#18#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>qt</find>
+      <find>objp</find>
+      <find>calibra</find>
+      <find>wait</find>
+      <find>right_fit</find>
+      <find>left_fit</find>
+      <find>left_fitx</find>
+      <find>show</find>
+      <find>region</find>
+      <find>fit_polynomial</find>
+      <find>sear</find>
+      <find>search_aroun</find>
+      <find>find_lane_pixels</find>
+      <find>img_unditorted</find>
+      <find>cv2</find>
+      <find>distor</find>
+      <find>zeros</find>
+      <find>print</find>
+      <find>roi</find>
+      <find>convert_white</find>
+      <find>warp</find>
+      <find>ploty</find>
+      <find>fit</find>
+      <find>left_fit[</find>
+      <find>polyfit</find>
+      <find>lieft</find>
+      <find>fin</find>
+      <find>curva</find>
+      <find>warped_straight_lines</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>img_undistorted</replace>
+      <replace>enhance_yellow</replace>
+      <replace>enhance_white</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/examples/example.ipynb" />
+        <option value="$PROJECT_DIR$/examples/example.py" />
+        <option value="$PROJECT_DIR$/examples/test.py" />
+        <option value="$PROJECT_DIR$/examples/undistorted_and_transform.py" />
+        <option value="$PROJECT_DIR$/examples/undistort.py" />
+        <option value="$PROJECT_DIR$/examples/thresholded_binary_image.py" />
+        <option value="$PROJECT_DIR$/examples/correctet_distortion.py" />
+        <option value="$PROJECT_DIR$/examples/binary_combo.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/example.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/correctet_distortion.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/warp.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/binary_combo.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/correct_distortion.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/ROI.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/region_of_interest.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/warp_image.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/warper.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/binary_combo.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/undistort.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/tools/find_lr_line.py" />
+        <option value="$PROJECT_DIR$/P2_py_files/finding_lines.py" />
+        <option value="$PROJECT_DIR$/writeup_template.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="223" />
+    <option name="y" value="536" />
+    <option name="width" value="2580" />
+    <option name="height" value="988" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="P2_AdvancedLaneFinding" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P2_AdvancedLaneFinding" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="P2_AdvancedLaneFinding" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P2_AdvancedLaneFinding" type="462c0819:PsiDirectoryNode" />
+              <item name="P2_py_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding" />
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding\project_video" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding" />
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding\project_video" />
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding\project_video_output" />
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding\temp" />
+      <recent name="C:\test\ud-project\P2_AdvancedLaneFinding\P2_py_files" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.finding_lines">
+    <configuration name="binary_combo" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="P2_AdvancedLaneFinding" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2_py_files/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2_py_files/tools/binary_combo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="find_lr_line" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="P2_AdvancedLaneFinding" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2_py_files/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2_py_files/tools/find_lr_line.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="finding_lines" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="P2_AdvancedLaneFinding" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2_py_files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2_py_files/finding_lines.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="warp_image" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="P2_AdvancedLaneFinding" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2_py_files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2_py_files/warp_image.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="warper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="P2_AdvancedLaneFinding" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/P2_py_files/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/P2_py_files/tools/warper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.finding_lines" />
+        <item itemvalue="Python.find_lr_line" />
+        <item itemvalue="Python.binary_combo" />
+        <item itemvalue="Python.warper" />
+        <item itemvalue="Python.warp_image" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca95c53a-4556-4552-9aa2-8b1d06eb129d" name="Default Changelist" comment="" />
+      <created>1551707114398</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1551707114398</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.093380615" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.070202805" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937598" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24980299" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32761312" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937598" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal/calibration1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/test_image2.png" />
+    <entry file="file://$PROJECT_DIR$/examples/test.py" />
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration9.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration7.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="437">
+            <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration19.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration10.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/binary_test_image_output/signs_vehicles_xygrad.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal/calibration6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration13.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/color_fit_lines.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/binary_combo_example.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/undistort_output.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/warped_straight_lines.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/straight_lines1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://C:/Python36/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="278" selection-start-line="278" selection-end-line="278" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/binary_test_image/signs_vehicles_xygrad.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration14.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration8.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/straight_lines2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test4.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test4.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test5.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images/test6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/tools/warper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python36/Lib/site-packages/numpy/lib/polynomial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="549" selection-start-line="549" selection-end-line="549" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/example_output.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/straight_lines1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test3.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_images/save_output_here.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="78" selection-start-column="78" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/warp_image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/correct_distortion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/tools/undistort.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/tools/binary_combo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/tools/region_of_interest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/camera_cal_output/calibration6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/straight_lines2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_images_output/test5.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/tools/find_lr_line.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="111" column="51" lean-forward="true" selection-start-line="111" selection-start-column="51" selection-end-line="111" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/writeup_template.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="403">
+            <caret line="136" selection-start-line="136" selection-end-line="136" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/P2_py_files/finding_lines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="34" column="57" lean-forward="true" selection-start-line="34" selection-start-column="57" selection-end-line="34" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
