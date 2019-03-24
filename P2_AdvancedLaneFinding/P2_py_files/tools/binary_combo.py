@@ -5,23 +5,34 @@ import matplotlib.pyplot as plt
 import os
 
 #enchance yellow line
+"""
 def enhance_yellow(img):
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(hsv)
     low_yellow = np.array([5, 100, 100])
     high_yellow = np.array([40,255,255])
     yellow_range=cv2.inRange(hsv, low_yellow, high_yellow)
     yellow_converted_img=img.copy()
     yellow_converted_img[yellow_range == 255] = 255
-#    cv2.imshow("test",yellow_converted_img)
+    cv2.imshow("test",yellow_converted_img)
+    return yellow_converted_img
+"""
+def enhance_yellow(img):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(hsv)
+    yellow_range=cv2.inRange(s, 100,250)
+    yellow_converted_img = np.zeros_like(img)
+    yellow_converted_img[yellow_range == 255] = 255
     return yellow_converted_img
 
 #enchance white line
 def enhance_white(img):
+    cv2.imshow("test",img)
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     lower_white = np.array([0, 0, 200])
-    upper_white = np.array([131, 255, 255])
+    upper_white = np.array([255, 30, 255])
     white_range=cv2.inRange(hsv, lower_white, upper_white)
-    white_converted_img=img.copy()
+    white_converted_img = np.zeros_like(img)
     white_converted_img[white_range == 255] = 255
 #    cv2.imshow("test",yellow_converted_img)
     return white_converted_img
@@ -86,7 +97,11 @@ def binary_combo(image ):
     # Choose a Sobel kernel size
     ksize = 3 # Choose a larger odd number to smooth gradient measurements
     yellow_enhanced_img=enhance_yellow(image)
-    mixed_enhanced_img=enhance_white(yellow_enhanced_img)
+    white_enhanced_img=enhance_white(image)
+    mixed_enhanced_img= np.zeros_like(image)
+    mixed_enhanced_img[(yellow_enhanced_img == 255) | (white_enhanced_img == 255)] = 255
+    cv2.imshow("",mixed_enhanced_img)
+
     grady = abs_sobel_thresh(mixed_enhanced_img, orient='y', sobel_kernel=ksize, thresh=(50, 100))
     gradx = abs_sobel_thresh(mixed_enhanced_img, orient='x', sobel_kernel=ksize, thresh=(50, 100))
     mag_binary = mag_thresh(mixed_enhanced_img, sobel_kernel=ksize, mag_thresh=(5, 100))

@@ -32,7 +32,7 @@ for file in files:
     binary_warped=binary_combo.binary_combo(img_undistorted)
 
     warped = warper.warp(binary_warped, src, dst)
-    window_img = find_lr_line.search_around_poly(warped )
+    window_img, left_curverad, right_curverad, deviation = find_lr_line.search_around_poly(warped)
 
     window_img=warper.warp(window_img,dst,src)
     window_img=window_img.astype(np.uint8)
@@ -45,11 +45,12 @@ for file in files:
     #plt.imshow(result[...,::-1]) #same - result[:,:,::-1]
     #plt.show()
 
-def print_curvature(img, left_curvature, right_curvature):
+def print_carinfo(img, left_curvature, right_curvature,deviation):
     left_text = 'left curvature : {0:0.2f}m'.format(left_curvature)
     right_text = 'right curvature : {0:0.2f}m'.format(right_curvature)
-    cv2.putText(img, left_text, (30, 70), cv2.FONT_HERSHEY_PLAIN, 1.5, (50, 100, 255), 1)
-    cv2.putText(img, right_text, (30, 100), cv2.FONT_HERSHEY_PLAIN, 1.5, (50, 100, 255), 1)
+    cv2.putText(img, left_text, (30, 70), cv2.QT_FONT_NORMAL, 1.5, (50, 100, 100), 1)
+    cv2.putText(img, right_text, (30, 120), cv2.QT_FONT_NORMAL, 1.5, (50, 100, 100), 1)
+    cv2.putText(img, deviation, (30, 170), cv2.QT_FONT_NORMAL, 1.5, (50, 100, 100), 1)
 
 files = os.listdir("../project_video/")
 print(files)
@@ -79,13 +80,13 @@ for file_name in files:
 
             binary_warped = binary_combo.binary_combo(img_undistorted)
             warped = warper.warp(binary_warped, src, dst)
-            window_img, left_curverad, right_curverad = find_lr_line.search_around_poly(warped )
+            window_img, left_curverad, right_curverad, deviation = find_lr_line.search_around_poly(warped )
             window_img = warper.warp(window_img, dst, src)
             window_img = window_img.astype(np.uint8)
             img_undistorted = img_undistorted.astype(np.uint8)
             result = cv2.addWeighted(img_undistorted, 1.0, window_img, 0.3, 0.0)
 
-            print_curvature(result,left_curverad,right_curverad)
+            print_carinfo(result,left_curverad,right_curverad,deviation)
 
             cv2.imshow(file_name,result)
             out.write(result)
