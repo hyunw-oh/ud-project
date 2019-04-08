@@ -97,7 +97,6 @@ def find_lane_pixels(binary_warped):
 
 
 def fit_polynomial(binary_warped,leftx, lefty, rightx, righty,out_img):
-
     # Fit a second order polynomial to each using `np.polyfit`
     left_fit = np.polyfit(lefty, leftx, 2)
     right_fit = np.polyfit(righty, rightx, 2)
@@ -121,8 +120,20 @@ def fit_polynomial(binary_warped,leftx, lefty, rightx, righty,out_img):
     # Calculation of R_curve (radius of curvature)
     y_eval = np.max(ploty)
 
-    left_curverad = ((1 + (2 * left_fit[0] * y_eval + left_fit[1]) ** 2) ** 1.5) / np.absolute(2 * left_fit[0])
-    right_curverad = ((1 + (2 * right_fit[0] * y_eval + right_fit[1]) ** 2) ** 1.5) / np.absolute(2 * right_fit[0])
+    lane_width_pix = binary_warped.shape[1] * 0.57
+    ym_per_pix = 30 / binary_warped.shape[0] # meters per pixel in y dimension
+    xm_per_pix = 3.7 / lane_width_pix # meteres per pixel in x dimension
+
+    # Fit new polynomials to x,y in world space
+    left_fit_cr = np.polyfit(lefty * ym_per_pix, leftx * xm_per_pix, 2)
+    right_fit_cr = np.polyfit(righty * ym_per_pix, rightx * xm_per_pix, 2)
+
+    # Calculate the new radii of curvature
+    left_curverad = ((1 + (2 * left_fit_cr[0] * y_eval * ym_per_pix + left_fit_cr[1]) ** 2) ** 1.5) / np.absolute(
+        2 * left_fit_cr[0])
+    right_curverad = ((1 + (2 * right_fit_cr[0] * y_eval * ym_per_pix + right_fit_cr[1]) ** 2) ** 1.5) / np.absolute(
+        2 * right_fit_cr[0])
+
 
     return left_fitx,right_fitx ,ploty,left_curverad,right_curverad
 
@@ -131,7 +142,6 @@ def search_around_poly(binary_warped):
 
     # Find our lane pixels first
     leftx, lefty, rightx, righty, out_img = find_lane_pixels(binary_warped)
-
     # Fit new polynomials
     left_fit, right_fit, ploty, left_curverad, right_curverad = fit_polynomial(binary_warped, leftx, lefty, rightx, righty,out_img)
 
@@ -142,6 +152,7 @@ def search_around_poly(binary_warped):
 
     # Grab activated pixels
     nonzero = binary_warped.nonzero()
+    nonzeroy = np.array(nonzero[0])
     nonzeroy = np.array(nonzero[0])
     nonzerox = np.array(nonzero[1])
 
@@ -184,7 +195,6 @@ def search_around_poly(binary_warped):
     left_line_window2 = np.array([np.flipud(np.transpose(np.vstack([half_fit,
                                                                     ploty])))])
     left_line_pts = np.hstack((left_line_window1, left_line_window2))
-
     right_line_window1 = np.array([np.transpose(np.vstack([half_fit, ploty]))])
     right_line_window2 = np.array([np.flipud(np.transpose(np.vstack([right_fit,
                                                                      ploty])))])
@@ -193,10 +203,14 @@ def search_around_poly(binary_warped):
     # Draw the lane onto the warped blank image
     cv2.fillPoly(window_img, np.int_([left_line_pts]), (0, 255, 0))
     cv2.fillPoly(window_img, np.int_([right_line_pts]), (0, 255, 0))
-
     # Plot the polynomial lines onto the image
 #    plt.plot(left_fit, ploty, color='yellow')
 #    plt.plot(right_fit, ploty, color='yellow')
     ## End visualization steps ##
 
-    return window_img, left_curverad, right_curverad
+    if(width/2-(left_fit[-1]+right_fit[-1])/2<0):
+        deviation = 'Out of center - RIGHT : ' + str(round(1-(width/2-np.abs(width/2-(left_fit[-1]+right_fit[-1])/2))/(width/2),2)) + '%'
+    else:
+        deviation = 'Out of center - LEFT : ' + str(round(1-(width/2-np.abs(width/2-(left_fit[-1]+right_fit[-1])/2))/(width/2),2)) + '%'
+
+    return window_img, left_curverad, right_curverad, deviation
