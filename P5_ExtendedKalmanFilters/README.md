@@ -25,4 +25,4 @@ and also you need to run client 'term2_sim' binary
 They will communicate using uWebSocketIO.
 
 ## Output image
-!./result.png
+![result](./result.png)
