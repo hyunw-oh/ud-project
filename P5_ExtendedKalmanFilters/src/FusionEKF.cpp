@@ -60,8 +60,10 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
      * You'll need to convert radar from polar to cartesian coordinates.
      */
 
+    previous_timestamp_ = measurement_pack.timestamp_;
+
     // first measurement
-    cout << "EKF: " << endl;
+    std::cout << "EKF: " << std::endl;
     ekf_.x_ = VectorXd(4);
     ekf_.x_ << 1, 1, 1, 1;
     ekf_.P_ = MatrixXd::Identity(4,4);
@@ -84,17 +86,19 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       /**
       Initialize state.
       */
-      cout<<"Timestamp2"<< endl;
+      std::cout<<"Timestamp2"<< std::endl;
       ekf_.x_<<measurement_pack.raw_measurements_(0)
               ,measurement_pack.raw_measurements_(1)
               ,0.0
               ,0.0;
     }
-     ekf_.x_(2) = 5.2;
-     ekf_.x_(3) = 1.8/1000.0;
+    ekf_.x_(2) = 5.2;
+    ekf_.x_(3) = 1.8/1000.0;
 
     // done initializing, no need to predict or update
     is_initialized_ = true;
+
+    std::cout<<"out init of ProcessMeasurement"<<std::endl;
     return;
   }
 
@@ -155,6 +159,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   }
 
   // print the output
-  cout << "x_ = " << ekf_.x_ << endl;
-  cout << "P_ = " << ekf_.P_ << endl;
+  std::cout << "x_ = " << ekf_.x_ << std::endl;
+  std::cout << "P_ = " << ekf_.P_ << std::endl;
 }

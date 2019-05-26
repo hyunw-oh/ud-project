@@ -18,6 +18,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
   //RMSE : Root Mean Square Error
   VectorXd rmse(4);
+	rmse << 0,0,0,0;
 
   if(estimations.size() != ground_truth.size()
                     || estimations.size() == 0){
@@ -36,10 +37,10 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   }
 
   //calculate the mean
-  rmse = rmse / estimations.size();
+  rmse = rmse / len;
 
   //calculate the squared root
-  rmse = rmse.array().sqrt();
+  rmse = rmse.array().abs().sqrt();
 
   //return the result
   return rmse;
